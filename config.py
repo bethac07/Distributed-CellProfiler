@@ -1,6 +1,6 @@
 # Constants (User configurable)
 
-APP_NAME = 'DistributedCP'                # Used to generate derivative names unique to the application.
+APP_NAME = 'DistributedSomething'                # Used to generate derivative names unique to the application.
 
 # DOCKER REGISTRY INFORMATION:
 DOCKERHUB_TAG = 'user/distributed-something:sometag'
