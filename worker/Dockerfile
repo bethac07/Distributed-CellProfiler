@@ -6,7 +6,7 @@
 #
 
 
-FROM cellprofiler/cellprofiler:4.0.6
+FROM someuser/somedocker:sometag
 
 # Install S3FS 
 
@@ -57,10 +57,6 @@ COPY cp-worker.py .
 COPY instance-monitor.py .
 COPY run-worker.sh .
 RUN chmod 755 run-worker.sh
-
-RUN git clone https://github.com/CellProfiler/CellProfiler-plugins.git
-WORKDIR /home/ubuntu/CellProfiler-plugins
-#RUN pip install -r requirements.txt
 
 WORKDIR /home/ubuntu
 ENTRYPOINT ["./run-worker.sh"]
