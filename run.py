@@ -361,11 +361,8 @@ def submitJob():
     if 'output_structure' not in jobInfo.keys(): #backwards compatibility for 1.0.0
         jobInfo["output_structure"]=''
     templateMessage = {'Metadata': '', 
-        'pipeline': jobInfo["pipeline"],
-        'output': jobInfo["output"],
-        'input': jobInfo["input"],
-        'data_file': jobInfo["data_file"],
-        'output_structure':jobInfo["output_structure"]
+        'input_location': jobInfo["input_location"],
+        'job_flag_1': jobInfo["job_flag_1"]
         }
 
     # Step 2: Reach the queue and schedule tasks
@@ -373,11 +370,7 @@ def submitJob():
     queue = JobQueue()
     print('Scheduling tasks')
     for batch in jobInfo["groups"]:
-        #support Metadata passed as either a single string or as a list
-        try: #single string ('canonical' DCP)
-            templateMessage["Metadata"] = batch["Metadata"]
-        except KeyError: #list of parameters (cellprofiler --print-groups)
-            templateMessage["Metadata"] = batch
+        templateMessage["Metadata"] = batch
         queue.scheduleBatch(templateMessage)
     print('Job submitted. Check your queue')
 
@@ -576,10 +569,10 @@ def monitor(cheapest=False):
     #Step 6: Export the logs to S3
     logs=boto3.client('logs')
 
-    print('Transfer of CellProfiler logs to S3 initiated')
+    print('Transfer of program logs to S3 initiated')
     export_logs(logs, loggroupId, starttime, bucketId)
 
-    print('Transfer of per-instance to S3 initiated')
+    print('Transfer of per-instance logs to S3 initiated')
     export_logs(logs, loggroupId+'_perInstance', starttime, bucketId)
 
     print('All export tasks done')
