@@ -3,7 +3,7 @@
 APP_NAME = 'DistributedCP'                # Used to generate derivative names unique to the application.
 
 # DOCKER REGISTRY INFORMATION:
-DOCKERHUB_TAG = 'cellprofiler/distributed-cellprofiler:2.0.0_4.1.3'
+DOCKERHUB_TAG = 'user/distributed-something:sometag'
 
 # AWS GENERAL SETTINGS:
 AWS_REGION = 'us-east-1'
@@ -40,5 +40,4 @@ EXPECTED_NUMBER_FILES = 7    #What is the number of files that trigger skipping 
 MIN_FILE_SIZE_BYTES = 1      #What is the minimal number of bytes an object should be to "count"?
 NECESSARY_STRING = ''        #Is there any string that should be in the file name to "count"?
 
-# PLUGINS
-USE_PLUGINS = 'False'
+# PUT ANYTHING SPECIFIC TO YOUR PROGRAM DOWN HERE
