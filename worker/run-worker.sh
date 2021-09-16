@@ -33,7 +33,7 @@ python3.8 instance-monitor.py &
 
 # 5. RUN CP WORKERS
 for((k=0; k<$DOCKER_CORES; k++)); do
-    python3.8 cp-worker.py |& tee $k.out &
+    python3.8 generic-worker.py |& tee $k.out &
     sleep $SECONDS_TO_START
 done
 wait
