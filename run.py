@@ -120,10 +120,6 @@ def generate_task_definition(AWS_PROFILE):
             "value": str(MIN_FILE_SIZE_BYTES)
         },
         {
-            "name": "USE_PLUGINS",
-            "value": str(USE_PLUGINS)
-        },
-        {
             "name": "NECESSARY_STRING",
             "value": NECESSARY_STRING
         },
