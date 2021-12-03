@@ -103,9 +103,14 @@ def runSomething(message):
     logger = logging.getLogger(__name__)
 
     # Parse your message somehow to pull out a name variable that's going to make sense to you when you want to look at the logs later
+    # What's commented out below will work, otherwise, create your own
+    #group_to_run = message["group"]
+    #groupkeys = list(group_to_run.keys())
+    #groupkeys.sort()
+    #metadataID = '-'.join(groupkeys)
     
     # Add a handler with 
-    # watchtowerlogger=watchtower.CloudWatchLogHandler(log_group=LOG_GROUP_NAME, stream_name=str(YourVariable),create_log_group=False)
+    # watchtowerlogger=watchtower.CloudWatchLogHandler(log_group=LOG_GROUP_NAME, stream_name=str(metadataID),create_log_group=False)
     # logger.addHandler(watchtowerlogger)
 
     # See if this is a message you've already handled, if you've so chosen    
