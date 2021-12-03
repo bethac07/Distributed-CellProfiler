@@ -1,4 +1,5 @@
 {
+  "_comment0": "All keys that contain '_comment' will be omitted from the job specification dictionary sent to SQS",
   "_comment1": "The top part should be variables common to all jobs",
   "_comment2": "These could be things like a master input location, run parameters, etc",
   "input_location": "Somewhere/on/your/bucket",
